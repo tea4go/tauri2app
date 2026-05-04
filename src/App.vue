@@ -63,9 +63,23 @@ async function greet() {
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .container {
   margin: 0;
-  padding-top: 10vh;
+  padding: 10vh 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,6 +91,14 @@ async function greet() {
   padding: 1.5em;
   will-change: filter;
   transition: 0.75s;
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 3.5em;
+    padding: 0.75em;
+  }
 }
 
 .logo.tauri:hover {
@@ -86,6 +108,14 @@ async function greet() {
 .row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+#greet-input {
+  min-width: 0;
+  flex: 1 1 12em;
+  max-width: 20em;
 }
 
 a {
@@ -131,10 +161,6 @@ button:active {
 input,
 button {
   outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
